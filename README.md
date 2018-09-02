@@ -2,5 +2,5 @@
 
 # run
 
-- change *ITEM_PIPELINES* by what db engine you wang
+- change *ITEM_PIPELINES* by what db engine you want
 - scrapy crawl TencentJob
