@@ -37,8 +37,8 @@ class TencentjobSpider(scrapy.Spider):
 
             yield item
 
-        # 3316
-        if self.offset < 3316:
+        # 3346
+        if self.offset < 3346:
             self.offset += 10
 
         yield scrapy.Request(self.url+str(self.offset), callback=self.parse)

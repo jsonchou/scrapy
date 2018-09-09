@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'Tencent.spiders'
 #USER_AGENT = 'Tencent (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -53,9 +53,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'Tencent.middlewares.TencentDownloaderMiddleware': 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -84,11 +85,19 @@ MYSQL_PWD = '123456'
 MYSQL_DB = 'tencent'
 MYSQL_TABLE = 'jobs'
 
+MONGO_HOST = '127.0.0.1'
+MONGO_PORT = 27017
+MONGO_DB = "dianzan"
+MONGO_COLL = "tieba"
+# MONGO_USER="root"
+# MONGO_PWD="123456"
+
 
 ITEM_PIPELINES = {
     # 'Tencent.pipelinesJson.TencentPipeline': 300,
     # 'Tencent.pipelinesSqlite3.TencentPipeline': 300,
-    'Tencent.pipelinesPostgre.TencentPipeline': 300,
+    # 'Tencent.pipelinesPostgre.TencentPipeline': 300,
+    'Tencent.pipelinesMongo.TencentPipeline': 300,
     # 'Tencent.pipelinesMysql.TencentPipeline': 300,
 }
 
