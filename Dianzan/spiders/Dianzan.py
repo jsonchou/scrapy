@@ -11,7 +11,7 @@ from Dianzan.items import DianzanItem
 class DianzanSpider(scrapy.Spider):
 
     # 功能
-    # 爬取腾讯社招信息
+    # 贴吧
     name = 'Dianzan'
     allowed_domains = ['baidu.com']
     url = "http://tieba.baidu.com/f/index/forumpark?cn=北京院校&ci=0&pcn=高等院校&pci=0&ct=1&rn=20&pn="
