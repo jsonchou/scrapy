@@ -10,7 +10,7 @@ import sqlite3
 
 # SQLite
 
-class TencentPipeline(object):
+class DianzanPipeline(object):
     # 保存数据
 
     def __init__(self, sqlite_file, sqlite_table):

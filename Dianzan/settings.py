@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for Tencent project
+# Scrapy settings for Dianzan project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'Tencent'
+BOT_NAME = 'Dianzan'
 
-SPIDER_MODULES = ['Tencent.spiders']
-NEWSPIDER_MODULE = 'Tencent.spiders'
+SPIDER_MODULES = ['Dianzan.spiders']
+NEWSPIDER_MODULE = 'Dianzan.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'Tencent (+http://www.yourdomain.com)'
+#USER_AGENT = 'Dianzan (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -26,8 +26,8 @@ ROBOTSTXT_OBEY = False
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
-# See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+# See also autothrottle settings and docs 250 ms
+DOWNLOAD_DELAY = 0.25 
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -40,7 +40,7 @@ ROBOTSTXT_OBEY = False
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;",
+    # "User-Agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;",
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'zh-cn'
 }
@@ -48,7 +48,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    'Tencent.middlewares.TencentSpiderMiddleware': 543,
+#    'Dianzan.middlewares.DianzanSpiderMiddleware': 543,
 # }
 
 # Enable or disable downloader middlewares
@@ -67,23 +67,23 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-SQLITE_FILE = 'tencent.db'
-SQLITE_TABLE = 'jobs'
+SQLITE_FILE = 'Dianzan.db'
+SQLITE_TABLE = 'tieba'
 
 PG_HOST = '127.0.0.1'
 PG_PORT = 5432
 PG_USER = 'postgres'
 PG_PWD = '123456'
-PG_DB = 'tencent'
-PG_TABLE = 'jobs'
+PG_DB = 'Dianzan'
+PG_TABLE = 'tieba'
 
 MYSQL_CHARSET = 'utf8mb4'
 MYSQL_HOST = '127.0.0.1'
 MYSQL_PORT = 3306
 MYSQL_USER = 'root'
 MYSQL_PWD = '123456'
-MYSQL_DB = 'tencent'
-MYSQL_TABLE = 'jobs'
+MYSQL_DB = 'Dianzan'
+MYSQL_TABLE = 'tieba'
 
 MONGO_HOST = '127.0.0.1'
 MONGO_PORT = 27017
@@ -94,11 +94,11 @@ MONGO_COLL = "tieba"
 
 
 ITEM_PIPELINES = {
-    # 'Tencent.pipelinesJson.TencentPipeline': 300,
-    # 'Tencent.pipelinesSqlite3.TencentPipeline': 300,
-    # 'Tencent.pipelinesPostgre.TencentPipeline': 300,
-    'Tencent.pipelinesMongo.TencentPipeline': 300,
-    # 'Tencent.pipelinesMysql.TencentPipeline': 300,
+    # 'Dianzan.pipelinesJson.DianzanPipeline': 300,
+    # 'Dianzan.pipelinesSqlite3.DianzanPipeline': 300,
+    # 'Dianzan.pipelinesPostgre.DianzanPipeline': 300,
+    'Dianzan.pipelinesMongo.DianzanPipeline': 300,
+    # 'Dianzan.pipelinesMysql.DianzanPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

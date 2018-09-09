@@ -6,23 +6,22 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import sys
-import pymysql
+import psycopg2
 from scrapy.conf import settings
 
-# Mysql
+# PostgreSQL
 
-class TencentPipeline(object):
+class DianzanPipeline(object):
     # 保存数据
 
     def __init__(self):
-        self.host = settings['MYSQL_HOST']
-        self.user = settings['MYSQL_USER']
-        self.pwd = settings['MYSQL_PWD']
-        self.db = settings['MYSQL_DB']
-        self.charset = settings['MYSQL_CHARSET']
-        self.port = int(settings['MYSQL_PORT'])
-        self.table = settings['MYSQL_TABLE']
-        self.conn = pymysql.connect(host=self.host, user=self.user,passwd=self.pwd, db=self.db, charset=self.charset, port=self.port)
+        self.host = settings['PG_HOST']
+        self.user = settings['PG_USER']
+        self.pwd = settings['PG_PWD']
+        self.db = settings['PG_DB']
+        self.port = int(settings['PG_PORT'])
+        self.table = settings['PG_TABLE']
+        self.conn = psycopg2.connect(host=self.host, user=self.user,password=self.pwd, dbname=self.db, port=self.port)
 
     def open_spider(self, spider):
         self.cur = self.conn.cursor()

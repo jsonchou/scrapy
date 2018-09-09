@@ -7,10 +7,10 @@
 
 import json
 
-class TencentPipeline(object):
+class DianzanPipeline(object):
     # 保存数据
     def __init__(self):
-        self.filename = open("tencent.json", "wb")
+        self.filename = open("Dianzan.json", "wb")
 
     def process_item(self, item, spider):
         text = json.dumps(dict(item), ensure_ascii=False) + ",\n"
